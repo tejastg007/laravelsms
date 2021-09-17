@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\URL;
 use App\Models\registration;
 use App\Models\course_detail;
 use Illuminate\Http\Request;
@@ -11,6 +11,7 @@ class dashboardController extends Controller
 {
     public function index()
     {
+        
         $users = registration::select(DB::raw('count(*) as count'))
             ->whereYear('registration_date', date('Y'))
             ->groupBy(DB::raw('month(registration_date)'))

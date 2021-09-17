@@ -12,6 +12,7 @@ use App\Http\Controllers\profileController;
 use App\Http\Controllers\reportController;
 use App\Http\Controllers\todoController;
 use App\Http\Controllers\notificationController;
+use App\Http\Controllers\studymaterialController;
 
 /*
 |--------------------------------------------------------------------------
@@ -73,19 +74,24 @@ Route::group(['prefix' => 'admin', "middleware" => 'auth'], function () {
     Route::post("/add-batch", [batchesController::class, 'add_batch_action']);
     Route::get("/batches/edit/{batchid}", [batchesController::class, 'edit_batch'])->name('admin.batches.edit');
     Route::post("edit-batch", [batchesController::class, 'edit_batch_action']);
-    // courses
+    //! courses
     Route::get('/courses', [coursesController::class, 'index'])->name('admin.courses');
     Route::get('/courses/{id}', [coursesController::class, 'view_course'])->name('admin.courses.view-course');
     Route::get('/course-version/{id}', [coursesController::class, 'view_course_version'])->name('admin.course-version');
     Route::post('/edit-course_action', [coursesController::class, 'edit_course_action']);
     Route::get('/add-course', [coursesController::class, 'add_course'])->name('admin.add-course');
     Route::post('/add-course', [coursesController::class, 'add_course_action']);
-    // fee status
+    //! fee status
     Route::get('/fee-status', [feeController::class, 'index'])->name('admin.fee-status');
     Route::post('/fee-action', [feeController::class, 'update_fee']);
     Route::get('/fee-details/{id}', [feeController::class, 'fee_details'])->name('admin.fee-details');
-    //report
+    //! report
     Route::get('/report', [reportController::class, 'index2'])->name('admin.report');
-    // notifications
+    //! notifications
     Route::get('/notifications', [notificationController::class, 'notifications'])->name('admin.notifications');
+    //! upload study material
+    Route::get('studymaterial', [studymaterialController::class, 'index'])->name('admin.studymaterial');
+    Route::post('uploadstudymaterial', [studymaterialController::class, 'uploadstudymaterial']);
+    Route::get('view-studymaterial/{id}', [studymaterialController::class, 'view_studymaterial'])->name('admin.view-studymaterial');
+    Route::post('editstudymaterial', [studymaterialController::class, 'editstudymaterial']);
 });

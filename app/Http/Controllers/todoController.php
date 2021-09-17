@@ -33,7 +33,7 @@ class todoController extends Controller
                 <textarea rows='3' style='display: none !important; resize:none'
                 class=' col-8 p-0 task-edit row-$task->id'> $task->task </textarea>
             <a style='display: none !important' href='javascript:void(0)'
-                class=' col-3 d-flex align-items-center justify-content-between task-edit-save row-$task->id' onclick='taskeditaction($task->id, event)'>
+                class=' col-2 d-flex align-items-center justify-content-end task-edit-save row-$task->id' onclick='taskeditaction($task->id, event)'>
                 <i class='fas fa-check-double text-success'></i>
             </a>
             

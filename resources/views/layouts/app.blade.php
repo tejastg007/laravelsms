@@ -7,6 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'Laravel') }}</title>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
     <script src="{{ asset('js/app.js') }}"></script>
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -17,135 +18,6 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.7.1/css/buttons.dataTables.min.css">
 </head>
 <style>
-    /* global styles */
-    * {
-        padding: 0;
-        margin: 0;
-        box-sizing: border-box;
-    }
-
-    ::-webkit-scrollbar {
-        display: none;
-    }
-
-    a,
-    a:hover {
-        text-decoration: none !important;
-    }
-
-    .card-header {
-        background-color: white !important;
-    }
-
-    /* global styles end*/
-
-
-    /* left column sidebar */
-    .left-column,
-    .right-column,
-    .todo-column {
-        position: relative;
-        max-height: 100vh;
-        height: 100vh;
-        overflow: scroll;
-    }
-
-    .left-column {
-        background-color: white !important;
-    }
-
-    .right-column {
-        overflow: auto;
-    }
-
-    .menu-item {
-        display: block;
-        color: black;
-        text-transform: capitalize;
-        padding: 10px;
-        margin: 5px 0px
-    }
-
-    .menu-item:hover {
-        background-color: rgb(0, 174, 218);
-        border-radius: 5px;
-        color: white;
-    }
-
-    .menu-item-active {
-        background-color: rgb(0, 174, 218);
-        border-radius: 5px;
-        color: white;
-    }
-
-    .menu-item:hover i {
-        color: white
-    }
-
-    .menu-item i {
-        color: gray;
-        width: 25px;
-        font-size: 18px !important;
-        margin-right: 10px;
-    }
-
-    /* sidebar ends */
-
-    /* profile button */
-    .admin-setting-container {
-        position: fixed;
-        right: 0px;
-        top: 0px;
-        z-index: 1000;
-    }
-
-    .admin-setting {
-        position: relative;
-        opacity: 0.3;
-        background-color: gray;
-        padding: 10px;
-        display: flex;
-    }
-
-    .admin-setting.dropdown-toggle::before {
-        content: none !important;
-    }
-
-    .admin-setting-container .dropdown-menu a.text-left {
-        /* padding: 0.3rem 0rem !important */
-    }
-
-    .admin-setting i {
-        font-size: 30px;
-        color: white
-    }
-
-    .admin-setting .dropdown-menu a {
-        color: black;
-    }
-
-    .admin-setting .dropdown-menu a i {
-        margin: 0px 10px
-    }
-
-    /* profie button end */
-
-    /* todo column */
-
-    .todo-container {
-        /* height: max-content; */
-    }
-
-    .displaynone {
-        display: none !important;
-    }
-
-    .tasks a {
-        font-size: 18px;
-        padding: 5px 10px
-    }
-
-    /* todo column end*/
 
 </style>
 @yield('style')
@@ -173,46 +45,9 @@
         {{-- data container --}}
         <div class="row data-container">
             {{-- left column --}}
-            <div class="left-column col-2 px-0">
-                <div class="left-top">
-                    <a href="{{ url('/dashboard') }}"
-                        class="justify-content-center align-items-center d-flex m-0 py-4 h3"
-                        style="font-weight:bold; letter-spacing:2px">MADCRAFT</a>
-                </div>
-                {{-- left menu bar --}}
-                <div class="left-menu p-2">
-                    <a href="{{ route('admin.dashboard') }}" class="menu-item"> <i class="fas fa-columns"></i>
-                        dashboard
-                    </a>
-                    <a href="{{ route('admin.new-admission') }}" class="menu-item"> <i
-                            class="fas fa-user-graduate"></i>
-                        new
-                        admission </a>
-                    <a href="{{ route('admin.active-students') }}" class="menu-item"> <i
-                            class="fas fa-chart-line"></i>
-                        active
-                        students </a>
-                    <a href="{{ route('admin.all-students') }}" class="menu-item "> <i
-                            class="fas fa-users"></i> all
-                        students
-                    </a>
-                    <a href="{{ route('admin.batches') }}" class="menu-item"> <i class="fas fa-restroom"></i>
-                        batches
-                    </a>
-                    <a href="{{ route('admin.courses') }}" class="menu-item"> <i class="fas fa-book"></i>
-                        courses
-                    </a>
-                    <a href="{{ route('admin.fee-status') }}" class="menu-item"> <i
-                            class="fas fa-rupee-sign "></i> fee
-                        status </a>
-                    <a href="{{ route('admin.report') }}" class="menu-item"> <i
-                            class="fas fa-file-invoice "></i>
-                        report</a>
-                    <a href="{{ route('admin.notifications') }}" class="menu-item"> <i
-                            class="fas fa-bell "></i>
-                        notifications <span class="badge badge-danger">new</span> </a>
-                </div>
-            </div>
+            @include('includes.leftbar')
+            {{-- left column ends --}}
+
 
             {{-- main middle column --}}
             <div class="right-column col-7 mx-0 px-0">
@@ -244,7 +79,6 @@
             $('.table').DataTable({});
         });
     </script>
-    {{-- for sorting the column date wise - https://stackoverflow.com/questions/12003222/datatable-date-sorting-dd-mm-yyyy-issue --}}
 
     {{-- todo task scripts --}}
     <script>

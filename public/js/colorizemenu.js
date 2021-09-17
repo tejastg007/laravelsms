@@ -8,6 +8,7 @@ var paths = [
     "/admin/courses",
     "/admin/fee-status",
     "/admin/report",
+    "/admin/studymaterial",
     "/admin/notifications",
 ];
 var c = 0;
