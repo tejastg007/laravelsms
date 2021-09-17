@@ -45,6 +45,9 @@ Route::group(['prefix' => 'admin', "middleware" => 'auth'], function () {
     Route::get('/checkstatus', [notificationController::class, 'index']);
     //! profile route
     Route::get("/profile", [profileController::class, 'index'])->name('admin.profile');
+    Route::post("updateprofile", [profileController::class, 'updateprofile']);
+    Route::post("updatepassword", [profileController::class, 'updatepassword']);
+
     //! dashboard route
     Route::get("/dashboard", [dashboardController::class, 'index'])->name('admin.dashboard');
 
