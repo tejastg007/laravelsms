@@ -38,16 +38,24 @@ class studymaterialController extends Controller
     }
     public function editstudymaterial(Request $req)
     {
-        $result = resource::find($req->id)->update([
-            'course_id' => $req->course,
-            'short_description' => $req->shortdesc,
-            'detailed_description' => $req->detaileddesc,
-            'url' => $req->link
-        ]);
-        if ($result) {
-            return back()->with('success', 'changes have been saved !');
-        } else {
-            return back()->with('error', 'something went wrong, please try again !');
+        if (isset($req->update)) {
+            $result = resource::find($req->id)->update([
+                'course_id' => $req->course,
+                'short_description' => $req->shortdesc,
+                'detailed_description' => $req->detaileddesc,
+                'url' => $req->link
+            ]);
+            if ($result) {
+                return back()->with('success', 'changes have been saved !');
+            } else {
+                return back()->with('error', 'something went wrong, please try again !');
+            }
+        }
+        if (isset($req->delete)) {
+            $result = resource::find($req->id)->delete();
+            if ($result) {
+                return redirect('admin/studymaterial');
+            }
         }
     }
 }

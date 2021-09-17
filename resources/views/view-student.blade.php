@@ -4,7 +4,8 @@
 @endsection
 
 @section('page-content')
-    <a href="{{ route('admin.active-students') }}" class="btn btn-primary"> <i class="fa fa-long-arrow-alt-left"></i> Back </a>
+    <a href="{{ route('admin.active-students') }}" class="btn btn-primary"> <i class="fa fa-long-arrow-alt-left"></i> Back
+    </a>
 
     <div class="card mt-3 text-capitalize">
         <div class="card-header">
@@ -82,8 +83,13 @@
                                 value="{{ $data->phone }}" required>
                         </div>
                         <div class="col-6">
-                            <img src="{{ asset('/storage/avatars/' . $data->id . '.' . $data->avatar) }}" alt=""
-                                style="width: 100px;height:100px">
+                            <img @if ($data->avatar == null)
+                            src="{{ asset('homepageimages/blankimage.png') }}"
+                        @else
+                            src="{{ asset('avatars/' . $data->id . '.' . $data->avatar) }}"
+                            @endif
+                            alt="" style="width: 100px;height:100px">
+                            {{-- <img src="{{ asset('storage/madcraft.png') }}" alt=""> --}}
                         </div>
                     </div>
                 </form>
@@ -182,7 +188,8 @@
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
-                    <a class="pb-3 d-block" href="https://image.online-convert.com/convert-to-jpg" target="_blank" rel="nofollow">click
+                    <a class="pb-3 d-block" href="https://image.online-convert.com/convert-to-jpg" target="_blank"
+                        rel="nofollow">click
                         here to convert any image to JPG</a>
                     <form class="custom-file" method="post" action="{{ url('admin/upload-photo') }}"
                         enctype="multipart/form-data">

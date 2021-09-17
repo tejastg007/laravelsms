@@ -16,6 +16,7 @@ class studentsController extends Controller
 
     public function view_student($id)
     {
+        // return public_path('');
         $data = registration::find($id);
         return view("view-student", ['data' => $data]);
     }
@@ -43,6 +44,7 @@ class studentsController extends Controller
 
     public function all_students()
     {
+        
         $data = registration::with('course')->get();
         return view("all-students", ['data' => $data]);
     }

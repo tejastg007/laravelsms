@@ -60,9 +60,13 @@
                             placeholder="any link eg. youtube, google drive, website link" value="{{ $data->url }}"
                             required>
                     </div>
-                    <div class="form-group col-2">
+                    <div class="form-group col-6 ">
                         <label for=""></label>
-                        <input type="submit" class="form-control btn btn-success" value="Update">
+                        <div class="row form-group">
+                            <input type="submit" class="col-3 form-control btn btn-success" value="Update" name="update">
+                            <div class="col-1"></div>
+                            <input type="submit" class="col-3 form-control btn btn-danger" value="Delete" name="delete">
+                        </div>
                     </div>
                 </div>
             </form>
@@ -71,4 +75,5 @@
 @endsection
 
 @section('scripts')
+
 @endsection
