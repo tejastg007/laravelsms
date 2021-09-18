@@ -34,15 +34,16 @@
                             @if (!empty($_GET['enddate']))value="{{ $_GET['enddate'] }}" @endif>
                     </div>
                     <div class="form-group">
-                        <button type="submit" name="submit" class="btn btn-primary ml-2">view</button>
+                        <button type="submit" name="submit" value="submit" class="btn btn-primary ml-2">view</button>
                         <a href="{{ url('admin/report') }}" class="btn btn-danger">reset all</a>
                     </div>
                 </div>
+                <div class="download-btns pb-2">
+                    <button formtarget="_blank" type="submit" name="downloadpdf" value="download"
+                        class="btn btn-warning">print statement</button>
+                </div>
             </form>
-            <div class="download-btns pb-2">
-                <a href="#" class="btn  btn-primary">download PDF</a>
-                <a href="#" class="btn  btn-success">Print statement</a>
-            </div>
+
             <div>
                 {{-- <p>{{ $_GET['courses'] }}</p> --}}
                 <table class="table border text-capitalize table-hover">
@@ -58,12 +59,14 @@
                     <tbody>
                         @php
                             $total = 0;
+                            $i = 0;
                         @endphp
                         @if (!empty($_GET['courses']))
                             @foreach ($feedata as $record)
                                 @if (in_array($record->studname->course->name, $_GET['courses']))
+                                    @php $i++; @endphp
                                     <tr>
-                                        <td>{{ $loop->iteration }}</td>
+                                        <td>@php echo $i @endphp</td>
                                         <td>{{ $record->studname->name }}</td>
                                         {{-- <td>{{ $record->studname }}</td> --}}
                                         <td>{{ $record->studname->course->name }}</td>

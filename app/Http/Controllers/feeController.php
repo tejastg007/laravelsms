@@ -20,6 +20,12 @@ class feeController extends Controller
         // return $data->feedetail;
         return view('fee-details', ['data' => $data]);
     }
+    public function fee_receipt($id)
+    {
+        $data = registration::find($id);
+        // return $data->feedetail;
+        return view('reports.feereceipt', ['data' => $data]);
+    }
 
     public function update_fee(Request $r)
     {

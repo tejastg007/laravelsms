@@ -88,8 +88,10 @@ Route::group(['prefix' => 'admin', "middleware" => 'auth'], function () {
     Route::get('/fee-status', [feeController::class, 'index'])->name('admin.fee-status');
     Route::post('/fee-action', [feeController::class, 'update_fee']);
     Route::get('/fee-details/{id}', [feeController::class, 'fee_details'])->name('admin.fee-details');
+    Route::get('/fee-receipt/{id}', [feeController::class, 'fee_receipt'])->name('admin.fee-receipt');
     //! report
     Route::get('/report', [reportController::class, 'index2'])->name('admin.report');
+    Route::get('reporttemplate', [reportController::class, 'template'])->name('admin.reporttemplate');
     //! notifications
     Route::get('/notifications', [notificationController::class, 'notifications'])->name('admin.notifications');
     //! upload study material

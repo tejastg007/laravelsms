@@ -60,7 +60,7 @@
                         @endforeach
                     </tbody>
                 </table>
-                <a href="#" class="btn btn-primary my-3">receipt</a>
+                <a target="_blank" href="{{ route('admin.fee-receipt', ['id' => $data->id]) }}" class="btn btn-primary my-3">receipt</a>
             </form>
         </div>
     </div>
