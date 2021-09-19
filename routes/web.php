@@ -28,7 +28,7 @@ use App\Http\Controllers\studymaterialController;
 
 
 Route::get('/', function () {
-    return view('home');
+    return view('home.home');
 });
 
 Route::prefix('admin')->group(function () {
@@ -47,6 +47,7 @@ Route::group(['prefix' => 'admin', "middleware" => 'auth'], function () {
     Route::get("/profile", [profileController::class, 'index'])->name('admin.profile');
     Route::post("updateprofile", [profileController::class, 'updateprofile']);
     Route::post("updatepassword", [profileController::class, 'updatepassword']);
+    Route::post("updatedetails", [profileController::class, 'updatedetails']);
 
     //! dashboard route
     Route::get("/dashboard", [dashboardController::class, 'index'])->name('admin.dashboard');

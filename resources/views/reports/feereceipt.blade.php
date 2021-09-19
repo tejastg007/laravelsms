@@ -61,12 +61,11 @@ use Carbon\Carbon;
             <p><strong>Address: near PWD office, behind karnataka bank, nippani road, chikodi, karnataka.</strong></p>
             <div class="row">
                 <div class="col-6">
-                    <p><strong>Phone : 7776999440</strong></p>
+                    <p><strong>Phone : {{ $companydetails->phone1 . ' , ' . $companydetails->phone2 }}</strong></p>
                     <p><strong> Website: www.madcraftdigitalseva.com</strong></p>
                 </div>
                 <div class="col-6">
-                    <p><strong>email : madcraft2019@gmail.com</strong></p>
-                    <p><strong>instagram : @madcraftdigital</strong></p>
+                    <p><strong>email : {{ $companydetails->email }}</strong></p>
                 </div>
             </div>
 
@@ -149,7 +148,8 @@ use Carbon\Carbon;
                     <tr>
                         <td></td>
                         <td> <strong> total amount </strong></td>
-                        <td> <strong> {{ $data->course->course_fee }} Rs </strong></td>
+                        <td> <strong> {{ $data->course->course_fee + $data->course->registration_fee }} Rs </strong>
+                        </td>
                         <td> <strong> total paid </strong></td>
                         <td><strong>{{ $paid }} Rs</strong></td>
                     </tr>

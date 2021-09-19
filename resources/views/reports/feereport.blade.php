@@ -59,7 +59,16 @@ use Carbon\Carbon;
             </div>
         </div>
         <hr>
-        <p><strong>Address: near PWD office, behind karnataka bank, nippani road, chikodi, karnataka.</strong></p>
+        <p><strong>Address: {{ $companydetails->address }}.</strong></p>
+        <div class="row">
+            <div class="col-6">
+                <p><strong>Phone : {{ $companydetails->phone1 . ' , ' . $companydetails->phone2 }}</strong></p>
+                <p><strong> Website: www.madcraftdigitalseva.com</strong></p>
+            </div>
+            <div class="col-6">
+                <p><strong>email : {{ $companydetails->email }}</strong></p>
+            </div>
+        </div>
         <hr>
         <div class="row">
             <div class="col-6">

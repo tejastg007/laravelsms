@@ -37,7 +37,7 @@
         <p class="lead">update details here !</p>
     </div>
 
-    <div class="row justify-content-around  bg-transparent form-container text-capitalize">
+    <div class="row justify-content-around  bg-transparent form-container text-capitalize container">
         {{-- update email and name form --}}
         <form class="col-5 bg-white shadow-lg p-3 " method="post" action="{{ url('admin/updateprofile') }}">
             @csrf
@@ -77,6 +77,33 @@
             </div>
         </form>
         {{-- update password  form --}}
+        <form class="col-7 bg-white p-3 mt-3 shadow-lg" method="post" action="{{ url('admin/updatedetails') }}">
+            @csrf
+            <p class="my-3 h5">update company details</p>
+            <div class="form-group">
+                <label for="address">address :</label>
+                <textarea type="text" name="address" id="address" class="form-control"
+                    required> {{ $companydetails->address }} </textarea>
+            </div>
+            <div class="form-group">
+                <label for="phone1">phone 1 :</label>
+                <input type="number" name="phone1" id="phone1" class="form-control"
+                    value="{{ $companydetails->phone1 }}" required>
+            </div>
+            <div class="form-group">
+                <label for="phone2">phone 2 : <span class="text-danger">(optional)</span> </label>
+                <input type="number" name="phone2" id="phone2" class="form-control"
+                    value="{{ $companydetails->phone2 }}">
+            </div>
+            <div class="form-group">
+                <label for="email">email ID : </label>
+                <input type="email" name="email" id="email" class="form-control" value="{{ $companydetails->email }}"
+                    required>
+            </div>
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-success mt-3">Update</button>
+            </div>
+        </form>
     </div>
 @endsection
 

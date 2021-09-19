@@ -24,7 +24,7 @@ class feeController extends Controller
     {
         $data = registration::find($id);
         // return $data->feedetail;
-        return view('reports.feereceipt', ['data' => $data]);
+        return view('reports.feereceipt', ['data' => $data, 'companydetails' => \App\Models\companydetail::first()]);
     }
 
     public function update_fee(Request $r)

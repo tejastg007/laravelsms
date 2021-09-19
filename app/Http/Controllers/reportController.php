@@ -61,7 +61,7 @@ class reportController extends Controller
                 $enddate = today();
             }
             $feedata = fee_detail::whereBetween('paid_on', [$startdate, $enddate])->where('status', 1)->with('studname')->orderBy('paid_on', 'desc')->get();
-            return view('reports.feereport', ['courses' => $coursedata, 'feedata' => $feedata]);
+            return view('reports.feereport', ['courses' => $coursedata, 'feedata' => $feedata, 'companydetails' => \App\Models\companydetail::first()]);
         }
         //! for all data 
         else {
