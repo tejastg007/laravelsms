@@ -127,4 +127,9 @@ class studController extends Controller
     {
         return view('student.contact');
     }
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('student.login');
+    }
 }

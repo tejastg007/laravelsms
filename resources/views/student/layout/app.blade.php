@@ -52,9 +52,16 @@
                         <a class="nav-link text-dark" href="{{ route('student.contact') }}">contact</a>
                     </li>
                 </ul>
-                <form class="form-inline my-2 my-lg-0">
-                    <a href="">Logout</a>
-                </form>
+                <div class="form-inline my-2 my-lg-0">
+                    <a href="{{ route('student.logout') }}"
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        Logout
+                    </a>
+                    <form id="logout-form" action="{{ route('student.logout') }}" method="POST"
+                        style="display: none;">
+                        @csrf
+                    </form>
+                </div>
             </div>
         </div>
     </nav>

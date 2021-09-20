@@ -15,6 +15,7 @@ use App\Http\Controllers\notificationController;
 use App\Http\Controllers\studymaterialController;
 use App\Http\Controllers\studentController;
 use App\Http\Controllers\studentPortal\studController;
+use App\Models\student;
 
 /*
 |--------------------------------------------------------------------------
@@ -126,5 +127,6 @@ Route::group(['prefix' => 'student',], function () {
         Route::get('fee-receipt/{id}', [studController::class, 'fee_receipt'])->name('student.fee-receipt');
         Route::get('resources', [studController::class, 'resources'])->name('student.resources');
         Route::get('contact', [studController::class, 'contact'])->name('student.contact');
+        Route::post('logout', [studController::class, 'logout'])->name('student.logout');
     });
 });
