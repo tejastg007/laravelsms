@@ -9,7 +9,7 @@ class studymaterialController extends Controller
 {
     public function index()
     {
-        $data = resource::with('coursename')->get();
+        $data = resource::get();
         return view('studymaterial', ['data' => $data]);
     }
 
@@ -19,7 +19,7 @@ class studymaterialController extends Controller
             return back()->with('successalready', ['resource already exist', $check->id]);
         }
         $result = resource::create([
-            'course_id' => $req->course,
+            'course' => $req->course,
             'short_description' => $req->shortdesc,
             'detailed_description' => $req->detaileddesc,
             'url' => $req->link

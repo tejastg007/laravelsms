@@ -34,7 +34,7 @@
                                             $courses = \App\Models\course_detail::where('status', 1)->get();
                                         @endphp
                                         @foreach ($courses as $course)
-                                            <option value={{ $course->id }}>{{ $course->name }}</option>
+                                            <option value='{{ $course->name }}'>{{ $course->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -109,7 +109,7 @@
                     @foreach ($data as $record)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $record->coursename->name }}</td>
+                            <td>{{ $record->course }}</td>
                             <td>{{ $record->short_description }}</td>
                             <td>{{ $record->created_at }}</td>
                             <td>

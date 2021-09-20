@@ -11,6 +11,7 @@
             <a href="#gallery">gallery</a>
             <a href="#about">about</a>
             <a href="#contact">contact us</a>
+            <a href="{{ route('student.login') }}">login</a>
         </div>
 
 

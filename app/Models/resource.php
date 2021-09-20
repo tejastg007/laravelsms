@@ -11,13 +11,17 @@ class resource extends Model
     use HasFactory;
     protected $guarded = [];
 
-    public function coursename()
-    {
-        return $this->belongsTo(course_detail::class, 'course_id', 'id');
-    }
+    // public function coursename()
+    // {
+    //     return $this->belongsTo(course_detail::class, 'course_id', 'id');
+    // }
 
     public function getCreatedAtAttribute($value)
     {
         return Carbon::parse($value)->format('d M,Y');
+    }
+    public function course()
+    {
+        return $this->belongsTo(course_detail::class, 'course_id', 'id');
     }
 }

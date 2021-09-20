@@ -20,7 +20,7 @@ class CreateRegistrationsTable extends Migration
             $table->string('student_id', 9)->unique();
             $table->date("dob");
             $table->string("phone", 10)->nullable();
-            $table->string("address", 100);
+            $table->string("address");
             $table->string("avatar")->nullable();
             $table->smallInteger("course_id");
             $table->smallInteger("batch_id");

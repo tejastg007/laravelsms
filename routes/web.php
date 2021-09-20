@@ -13,6 +13,8 @@ use App\Http\Controllers\reportController;
 use App\Http\Controllers\todoController;
 use App\Http\Controllers\notificationController;
 use App\Http\Controllers\studymaterialController;
+use App\Http\Controllers\studentController;
+use App\Http\Controllers\studentPortal\studController;
 
 /*
 |--------------------------------------------------------------------------
@@ -100,4 +102,29 @@ Route::group(['prefix' => 'admin', "middleware" => 'auth'], function () {
     Route::post('uploadstudymaterial', [studymaterialController::class, 'uploadstudymaterial']);
     Route::get('view-studymaterial/{id}', [studymaterialController::class, 'view_studymaterial'])->name('admin.view-studymaterial');
     Route::post('editstudymaterial', [studymaterialController::class, 'editstudymaterial']);
+});
+
+
+//todo student portal
+
+Route::group(['prefix' => 'student',], function () {
+    Route::group(['middleware' => 'checkloggedin'], function () {
+        Route::get('/', function () {
+            return redirect('student/login');
+        });
+        Route::get('register', [studController::class, 'register'])->name('student.register');
+        Route::post('register', [studController::class, 'register_action'])->name('student.register.action');
+        Route::get('login', [studController::class, 'login'])->name('student.login');
+        Route::post('login', [studController::class, 'login_action'])->name('student.login.action');
+    });
+    Route::group(['middleware' => 'auth:student'], function () {
+        Route::get('profile', [studController::class, 'profile'])->name('student.profile');
+        Route::post('profile', [studController::class, 'profileupdate'])->name('student.profile.update');
+        Route::post('password', [studController::class, 'passwordupdate'])->name('student.password.update');
+        Route::get('mycourse', [studController::class, 'mycourse'])->name('student.mycourse');
+        Route::get('feestatus', [studController::class, 'feestatus'])->name('student.feestatus');
+        Route::get('fee-receipt/{id}', [studController::class, 'fee_receipt'])->name('student.fee-receipt');
+        Route::get('resources', [studController::class, 'resources'])->name('student.resources');
+        Route::get('contact', [studController::class, 'contact'])->name('student.contact');
+    });
 });
