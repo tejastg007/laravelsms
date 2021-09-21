@@ -5,17 +5,18 @@
         </div>
         <div class="navitems" id="navitems">
             <a href="javascript:void(0)" class="fas fa-times" id="close-nav" onclick="closes()"></a>
-            <a href="#home">home</a>
+            <a href="{{ url('/') }}">home</a>
             <a href="#education">education</a>
             <a href="#services">services</a>
             <a href="#gallery">gallery</a>
             <a href="#about">about</a>
             <a href="#contact">contact us</a>
-            <a href="{{ route('student.login') }}">login</a>
+            <a href="{{ url('login') }}">login</a>
         </div>
-
-
+        <!-- Modal -->
+        {{-- modal ends --}}
         <a href="javascript:void(0)" class="fas fa-bars" id="open-nav" onclick="opens()"></a>
+
     </div>
 
 </header>

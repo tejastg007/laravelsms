@@ -14,6 +14,7 @@
 
     <title>Madcraft multitasking firm</title>
     <link rel="stylesheet" href="{{ asset('css/home.css') }}">
+    <script src="{{ asset('js/app.js') }}"></script>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@200;800&display=swap" rel="stylesheet">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css' />
