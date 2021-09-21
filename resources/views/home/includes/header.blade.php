@@ -6,6 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Madcraft multitasking firm</title>
+    <meta name="keywords"
+        content="madcraft multitasking firm, madcraft digital, madcraft computer center, computer classes in ichalkaranji, computer centers in kolhapur, computer institutes in ichalkaranji, computer institutes in kolhapur, madcraft digital seva">
+    <meta name="description"
+        content="madcraft multitasking firm is one of the best private computer institutes which provides low cost computer training.">
+    <meta name="robots" content="index, follow">
+
+    <title>Madcraft multitasking firm</title>
     <link rel="stylesheet" href="{{ asset('css/home.css') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@200;800&display=swap" rel="stylesheet">

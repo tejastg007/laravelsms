@@ -108,7 +108,7 @@
         $(function() {
             $("#course").change(function() {
                 var value = $("#course").val()
-
+                loadershow();
                 $.ajax({
                     url: '{{ url('admin/course-details') }}',
                     type: 'post',
@@ -121,6 +121,7 @@
                         $("#registrationfee").val(data.registrationfee)
                         $("#coursefee").val(data.coursefee)
                         $("#totalfee").val((data.coursefee) + (data.registrationfee))
+                        loaderhide();
                     }
                 })
             });

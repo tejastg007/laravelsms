@@ -5,11 +5,21 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Models\registration;
 use Illuminate\Http\Request;
+use App\Models\companydetail;
 
 class notificationController extends Controller
 {
     public function index()
     {
+        $companydetails = companydetail::first();
+        if ($companydetails == null) {
+            companydetail::insert([
+                'address' => 'near PWD office, behind karnataka bank, nippani road, chikodi, karnataka.',
+                'phone1' => '7776999440',
+                'email' => 'madcraft2019@gmail.com'
+            ]);
+        }
+
         $studs = registration::all();
         foreach ($studs as $stud) {
             if (Carbon::parse($stud->course_end_date)->eq(today())) {

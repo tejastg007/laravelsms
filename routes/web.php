@@ -62,6 +62,7 @@ Route::group(['prefix' => 'admin', "middleware" => 'auth'], function () {
     Route::post("/loaddata", [todoController::class, "loaddata"]);
     Route::post("/taskedit", [todoController::class, "taskedit"]);
     Route::post("/taskdelete", [todoController::class, "taskdelete"]);
+    Route::post('/searchstud', [todocontroller::class, 'searchstud']);
 
     //!new admission route
     Route::get("/new-admission", [newAdmissionController::class, 'index'])->name('admin.new-admission');

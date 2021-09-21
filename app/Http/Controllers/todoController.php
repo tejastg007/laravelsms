@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\todo;
+use App\Models\registration;
 
 class todoController extends Controller
 {
@@ -96,5 +97,29 @@ class todoController extends Controller
     {
         todo::where("id", $req->id)->delete();
         return response()->json(["message" => "task deleted"]);
+    }
+
+    public function searchstud(Request $req)
+    {
+        $data = registration::where('name', 'like', '%' . $req->keyword . '%')->get();
+        $out = '';
+        foreach ($data as $stud) {
+            $out .=
+                "<div class='result p-3 my-2'>
+                <a href='" .  route('admin.view-student', ['id' => $stud->id]) . "'class='text-dark'>
+                    <p class='m-0' style='font-size: 18px'>" . $stud->name
+                . "</p>
+                </a>
+            </div>";
+        }
+        //     <div class="result p-2 my-1">
+        //     <a href="" class="text-dark">
+        //         <p class=" m-0" style="font-size: 20px">tejas bhagwan gaikwad
+        //         </p>
+        //     </a>
+        // </div>
+        // return $data;
+        // return response()->json(['data' => $data]);
+        return response()->json(['data' => $out]);
     }
 }

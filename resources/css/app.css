@@ -1,5 +1,4 @@
-
-  ::-webkit-scrollbar {
+::-webkit-scrollbar {
     display: none;
 }
 
@@ -86,8 +85,6 @@ a:hover {
     content: none !important;
 }
 
-
-
 .admin-setting i {
     font-size: 30px;
     color: white
@@ -101,7 +98,90 @@ a:hover {
     margin: 0px 10px
 }
 
+
+
 /* profie button end */
+/* sarch bar */
+.search-stud {
+    position: fixed;
+    right: 0;
+    top: 50px;
+    z-index: 1000;
+}
+
+.search-bar {
+    position: relative;
+    padding: 10px;
+    display: flex;
+    background-color: rgb(206, 203, 203);
+}
+
+.search-bar i {
+    font-size: 30px;
+    color: #ffffff;
+}
+
+.search-bar input {
+    width: 300px;
+    height: 40px;
+    display: none;
+    outline: none !important;
+    color: white;
+    background: linear-gradient(to right, #2a0845, #6441A5);
+}
+
+.search-panel-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.26);
+    z-index: 100;
+    display: none
+}
+
+.search-results {
+    position: fixed;
+    width: 600px;
+    height: 400px;
+    background-color: rgb(247, 244, 244);
+    z-index: 1000;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    overflow: scroll;
+    display: none;
+    box-shadow: 0px 0px 15px 1px rgb(122, 122, 122)
+}
+
+.search-results .result {
+    border-radius: 6px;
+    background-color: white;
+}
+
+.search-results .result:nth-child(1) {
+    border-radius: 4px;
+    background-color: #06b6d4;
+}
+
+.search-results .result:nth-child(1) a {
+    color: white !important
+}
+
+.search-results .result:hover a {
+    color: white !important
+}
+
+.search-results .result:hover {
+    background: #6441A5;
+    background: -webkit-linear-gradient(to right, #2a0845, #6441A5);
+    background: linear-gradient(to right, #2a0845, #6441A5);
+}
+
+/* sarch bar end */
+
 
 /* todo column */
 
