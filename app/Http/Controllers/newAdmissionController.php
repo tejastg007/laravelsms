@@ -39,18 +39,20 @@ class newAdmissionController extends Controller
             $count = $temp->id + 1;
         }
         $stud_id = "MAD" . str_pad($count, 4, "0", STR_PAD_LEFT) . date('y');
-        $registrationdate = now()->format('Y-m-d');
+        // $registrationdate = now()->format('Y-m-d');
 
 
         // check status ; 0= yet to start, 1 = learning, -1= completed, 2= abandoned 
         $startdateObj = Carbon::parse($r->startdate);
-        $registrationdateObj = Carbon::parse($registrationdate);
-        if ($startdateObj->gt($registrationdateObj)) {
+        $registrationdateObj = Carbon::parse($r->regdate);
+        if ($registrationdateObj->gt(today())) {
+            return back()->withInput()->with('error', 'registration date should be less than todays date');
+        } elseif ($registrationdateObj->gt($startdateObj)) {
+            return back()->withInput()->with('error', 'registration date should be less than course start date');
+        } elseif ($startdateObj->gt(today())) {
             $status = 0;
-        } elseif ($startdateObj->eq($registrationdateObj)) {
+        } elseif ($startdateObj->eq($registrationdateObj) || $startdateObj->gt($registrationdateObj)) {
             $status = 1;
-        } elseif ($startdateObj->lt($registrationdateObj)) {
-            return back()->withInput()->with('error', 'course start date must be greater than or equal to todays date');
         } else {
         }
         $enddate = Carbon::createFromFormat(
@@ -68,7 +70,7 @@ class newAdmissionController extends Controller
             'address' => $r->address,
             'course_id' => $r->course,
             'batch_id' => $r->batch,
-            'registration_date' => $registrationdate,
+            'registration_date' => $r->regdate,
             'course_start_date' => $r->startdate,
             'course_end_date' => $enddate,
             'status' => $status

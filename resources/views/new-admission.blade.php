@@ -1,3 +1,6 @@
+@php
+use Carbon\Carbon;
+@endphp
 @extends('layouts.app')
 @section('style')
     <style>
@@ -65,10 +68,16 @@
                     </select>
                 </div>
                 <div class="form-group">
+                    <label for="regdate">registration date date :</label>
+                    <input type="date" class="form-control" name="regdate" id="regdate"
+                        value="{{ today()->format('Y-m-d') }}">
+                </div>
+                <div class="form-group">
                     <label for="startdate">course start date :</label>
                     <input type="date" class="form-control" name="startdate" id="startdate"
                         value="{{ old('startdate') }}">
                 </div>
+
                 <div class="form-group">
                     <label for="name">batch :</label>
                     <select name="batch" id="batch" class="form-control" required value="{{ old('batch') }}">
