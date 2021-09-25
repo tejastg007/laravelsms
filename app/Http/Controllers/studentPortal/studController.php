@@ -27,6 +27,9 @@ class studController extends Controller
         if (!registration::where('student_id', $req->student_id)->exists()) {
             return back()->with('error', 'studentID not found in our records!')->withInput();
         } else {
+            if (student::where('student_id', $req->student_id)->exists()) {
+                return back()->with('error', 'studentID already registered, please login!')->withInput();
+            }
             $result = student::create([
                 'student_id' => $req->student_id,
                 'password' => Hash::make($req->password)
