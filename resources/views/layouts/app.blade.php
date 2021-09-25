@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.7.1/css/buttons.dataTables.min.css">
 </head>
 <style>
-   
+
 
 </style>
 @yield('style')
@@ -132,11 +132,9 @@
             }
         });
     </script>
+    {{-- search bar scipt end --}}
 
-
-
-
-
+    {{-- data tables --}}
     <script>
         $(document).ready(function() {
             $('[data-toggle="tooltip"]').tooltip();
@@ -152,7 +150,9 @@
                 ]
             });
         });
+        // data tables ends
 
+        // ajax crud loaders
         function loadershow() {
             $('.loader').css('display', 'block');
         }
@@ -160,6 +160,13 @@
         function loaderhide() {
             $('.loader').css('display', 'none');
         }
+
+        // disblae submit buttons after submit
+        $('form').on('submit', function(e) {
+            $('button').attr('disabled', true);
+        })
+
+        // function disablesubmit() {}
     </script>
 
     {{-- todo task scripts --}}
