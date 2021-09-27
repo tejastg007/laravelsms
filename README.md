@@ -1,10 +1,27 @@
-follow the commands to run application on your machine.
-php version >=7.3 and composer should be installed.
-1. composer install - to install the laravel dependencies
-2. npm install - to install npm dependencies
-3. cp .env.example .env
-4. create database and add credentials in the .env file
-5. php artisan migrate
-6. php artisan storage:link
-7. php artisan key:generate
-8. php artisan serve - to run the application
+
+# Student Management System
+
+
+
+
+## Installation
+php version >=7.3 and composer required.
+
+Run the following commands
+```composer and artisan commands
+composer Install - to install required packages
+npm install - to install npm dependencies
+cp .env.example .env - to create environment (.env) file
+now create database and add credentials in .env file
+php artisan migrate - to create tables in database
+php artisan db:seed - to create a admin 
+default credentials for admin - 
+email:tejas@gmail.com
+password:12345678
+php artisan storage:link - to create symbolic links
+php artisan key:generate - t0 generate key
+php artisan cache:clear
+php artisan config:clear
+php artisan serve - to run the application
+
+    
