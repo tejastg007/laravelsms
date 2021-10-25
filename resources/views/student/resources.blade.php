@@ -19,22 +19,19 @@
                 <div class="card-body">
                     @forelse ($data as $res)
                         <div class="border-bottom py-1">
-                            <p style="font-size: 16px" class="m-0"><strong> <a href="google.com"
-                                        target="_blank">newbie
-                                        book for excelt</a>
-                                </strong></p>
-                            <p class="m-0">this is the book for all students who want to learn something in life
+                            <p style="font-size: 16px" class="m-0">
+                                <strong>
+                                    <a href="{{ $res->url }}" target="_blank">{{ $res->short_description }}</a>
+                                </strong>
                             </p>
-                            <p style="
-                                                                                                            font-size:12px;"
-                                class="text-right m-0">
-                                uploaded on
-                                : 2
-                                sept
-                                2021
+                            <p class="m-0">{{ $res->detailed_description }}
+                            </p>
+                            <p style="font-size:12px;" class="text-right m-0">
+                                {{ $res->created_at }}
                             </p>
                             <div class="d-flex justify-content-end">
-                                <a href="#" target="_blank" class="btn btn-primary btn-sm ">view/download</a>
+                                <a href="{{ $res->url }}" target="_blank"
+                                    class="btn btn-primary btn-sm ">view/download</a>
                             </div>
                         </div>
                     @empty

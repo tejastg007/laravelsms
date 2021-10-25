@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Models\student;
 use App\Models\registration;
 use App\Models\resource;
+use App\Models\companydetail;
 
 class studController extends Controller
 {
@@ -128,7 +129,8 @@ class studController extends Controller
     }
     public function contact()
     {
-        return view('student.contact');
+        $data = companydetail::first();
+        return view('student.contact', ["data" => $data]);
     }
     public function logout()
     {

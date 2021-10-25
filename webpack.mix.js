@@ -1,5 +1,5 @@
-const mix = require('laravel-mix');
-require('laravel-mix-purgecss');
+const mix = require("laravel-mix");
+require("laravel-mix-purgecss");
 
 /*
  |--------------------------------------------------------------------------
@@ -12,9 +12,9 @@ require('laravel-mix-purgecss');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css')
-    .styles('resources/css/app.css','public/css/custom.css')
-    .styles('resources/css/home.css','public/css/home.css')
+mix.js("resources/js/app.js", "public/js")
+    .sass("resources/sass/app.scss", "public/css")
+    .styles("resources/css/app.css", "public/css/custom.css")
+    .styles("resources/css/home.css", "public/css/home.css")
     .purgeCss()
     .sourceMaps();

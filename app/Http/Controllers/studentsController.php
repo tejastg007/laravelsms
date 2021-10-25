@@ -53,7 +53,7 @@ class studentsController extends Controller
     {
         $stud = registration::find($r->id);
         $r->validate([
-            'student-photo' => 'required|image|mimes:jpg|max:1048',
+            'student-photo' => 'required|image|mimes:jpg|max:1024',
         ]);
         $ext = $r->file('student-photo')->extension();
         $path = $r->file('student-photo')->storeAs(

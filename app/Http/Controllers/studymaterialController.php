@@ -33,7 +33,7 @@ class studymaterialController extends Controller
 
     public function view_studymaterial($id)
     {
-        $data = resource::where('id', $id)->with('coursename')->first();
+        $data = resource::where('id', $id)->with('course')->first();
         return view('view-resource', ['data' => $data]);
     }
     public function editstudymaterial(Request $req)

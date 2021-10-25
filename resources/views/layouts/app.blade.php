@@ -162,9 +162,9 @@
         }
 
         // disblae submit buttons after submit
-        $('form').on('submit', function(e) {
-            $('button').attr('disabled', true);
-        })
+        // $('form').on('submit', function(e) {
+        //     $('button').attr('disabled', true);
+        // })
 
         // function disablesubmit() {}
     </script>

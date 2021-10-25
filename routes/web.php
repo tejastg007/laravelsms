@@ -34,7 +34,8 @@ Route::get('/', function () {
     return view('home.home');
 });
 Route::get('/login', function () {
-    return view('home.includes.login');
+    // return view('home.includes.login');
+    return redirect("student/login");
 });
 
 Route::prefix('admin')->group(function () {

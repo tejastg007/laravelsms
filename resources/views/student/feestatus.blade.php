@@ -9,7 +9,7 @@
                         class="btn btn-primary" target="_blank">
                         print/download</a>
                 </div>
-                <div class="card-body">
+                <div class="card-body table-responsive">
                     <table class="table table-bordered">
                         <thead>
                             <tr>
@@ -49,7 +49,10 @@
                                                 not paid
                                             @endif
                                         </td>
-                                        <td id="d{{ $fee->id }}"> @if ($fee->paid_on == null) not paid @elseif ($fee->paid_on) {{ $fee->paid_on }} @endif</td>
+                                        <td id="d{{ $fee->id }}">
+                                            @if ($fee->paid_on == null) not paid
+                                            @elseif ($fee->paid_on) {{ $fee->paid_on }} @endif
+                                        </td>
                                     </tr>
                                 @endif
                             @endforeach
