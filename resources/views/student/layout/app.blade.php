@@ -14,13 +14,11 @@
         }
 
         body {
-            background: #0f0c29;
-            background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);
-            background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
+         background-color: #34495e !important;
         }
 
         .navbar {
-            background-color: #1abc9c !important;
+            background-color: #2c3e50 !important;
         }
 
         .navbar-brand {
@@ -84,9 +82,10 @@
         }
 
         .card-header {
-            background: #fe8c00;
+            /* background: #fe8c00;
             background: -webkit-linear-gradient(to right, #f83600, #fe8c00);
-            background: linear-gradient(to right, #f83600, #fe8c00);
+            background: linear-gradient(to right, #f83600, #fe8c00); */
+            background-color: #7f8c8d !important;
             color: white !important;
             letter-spacing: 1px;
         }

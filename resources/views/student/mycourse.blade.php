@@ -18,9 +18,10 @@
     }
 
     .panel .panel-heading {
-        background: #6441A5;
+        /* background: #6441A5;
         background: -webkit-linear-gradient(to right, #2a0845, #6441A5);
-        background: linear-gradient(to right, #2a0845, #6441A5);
+        background: linear-gradient(to right, #2a0845, #6441A5); */
+        background-color: #2c3e50;
         border-radius: 5px;
     }
 
@@ -33,9 +34,10 @@
     }
 
     .panel .panel-body {
-        background: #83a4d4;
+        /* background: #83a4d4;
         background: -webkit-linear-gradient(to right, #b6fbff, #83a4d4);
-        background: linear-gradient(to right, #b6fbff, #83a4d4);
+        background: linear-gradient(to right, #b6fbff, #83a4d4); */
+        background-color: #bdc3c7;
         border-radius: 5px
     }
 
