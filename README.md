@@ -18,6 +18,8 @@ php artisan db:seed - to create a admin
 default credentials for admin - 
 email:tejas@gmail.com
 password:12345678
+
+note:first delete avatars folder from public folder and run below command
 php artisan storage:link - to create symbolic links
 php artisan key:generate - t0 generate key
 php artisan cache:clear
