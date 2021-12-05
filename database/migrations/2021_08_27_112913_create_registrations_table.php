@@ -22,8 +22,10 @@ class CreateRegistrationsTable extends Migration
             $table->string("phone", 10)->nullable();
             $table->string("address");
             $table->string("avatar")->nullable();
-            $table->smallInteger("course_id");
-            $table->smallInteger("batch_id");
+            $table->foreignId("course_id");
+            $table->foreign('course_id')->references('id')->on('course_details');
+            $table->foreignId("batch_id");
+            $table->foreign("batch_id")->references('id')->on('batch_details');
             $table->date('registration_date');
             $table->date('course_start_date');
             $table->date('course_end_date');

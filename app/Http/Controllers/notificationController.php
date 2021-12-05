@@ -23,14 +23,17 @@ class notificationController extends Controller
         $studs = registration::all();
         foreach ($studs as $stud) {
             if (today()->lt(Carbon::parse($stud->course_start_date))) {
+                // echo "0";
                 $stud->status = 0;
                 $stud->save();
                 continue;
             } elseif (Carbon::parse($stud->course_end_date)->lt(today())) {
+                // echo "-1";
                 $stud->status = -1;
                 $stud->save();
                 continue;
             } elseif (Carbon::parse($stud->course_start_date)->lte(today())) {
+                // echo "1";
                 $stud->status = 1;
                 $stud->save();
                 continue;

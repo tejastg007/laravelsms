@@ -15,7 +15,8 @@ class CreateFeeDetailsTable extends Migration
     {
         Schema::create('fee_details', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger("student_id");
+            $table->foreignId("student_id");
+            $table->foreign("student_id")->references("id")->on("registrations");
             $table->tinyInteger("fee_type");
             $table->date("paid_on")->nullable();
             $table->boolean('status');
